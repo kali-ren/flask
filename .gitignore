@@ -1,0 +1,8 @@
+#package
+bin
+include
+lib
+local
+
+#SQLite database
+*.db

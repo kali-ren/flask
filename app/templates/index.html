@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+      {% for post in posts %}
+        <div class="post-preview">
+          <a href="{{ url_for('post', post_title=post.subtitle) }}">
+            <h2 class="post-title">
+              {{ post.title }}
+            </h2>
+            <h3 class="post-subtitle">
+              {{ post.subtitle }}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by {{ post.author }}
+            on {{ post.date_posted.strftime('%B %d, %Y') }}</p>
+        </div>
+        {% endfor %}
+        <hr>
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+{% endblock %}
